@@ -1,0 +1,232 @@
+ <!-- <div class="wrapper content-body"> -->
+  <div class="container-fluid">
+    <div class="white-bg">
+      <hr /><hr /><hr />
+      <tabset #CSACCITABS>
+        <div class="tab-content" id="myTabContent">
+          <tab heading="Countries">
+            &nbsp;
+            <div class="container-fluid">
+              <div class="white-bg">
+                  <div class="row">
+          <p-table #dt [columns]="CountryHeaderList" [value]="countries"
+           scrollHeight="200px" class="table" sortMode="multiple" [paginator]="true" [rows]="10">
+              <ng-template pTemplate="header" let-columns>
+                  <tr>
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.BindingValue">
+                          {{col.DisplayName}}
+                          <p-sortIcon [field]="col.BindingValue"></p-sortIcon>
+                      </th>
+                      <th class="action-width"></th>
+                  </tr>
+                  <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.BindingValue">
+                          <input pInputText type="text" 
+                          (input)="dt.filter($event.target.value, col.BindingValue, 'contains')">
+                      </th>
+                      <th class="action-width"></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                          {{rowData[col.BindingValue]}}
+                      </td>
+                      <td class="action-width"></td>
+                  </tr>
+              </ng-template>
+          </p-table>
+          </div>
+                  </div>
+              </div>
+          </tab>
+          <tab heading="Teams">
+            &nbsp;
+            <div class="container-fluid">
+              <div class="white-bg">
+                  <div class="row">
+          <p-table #dt1 [columns]="TeamHeaderList" [value]="FilterCountries"
+           scrollHeight="200px" class="table" sortMode="multiple" [paginator]="true" [rows]="5">
+              <ng-template pTemplate="header" let-columns>
+                  <tr >
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.BindingValue">
+                          {{col.DisplayName}}
+                          <p-sortIcon [field]="col.BindingValue"></p-sortIcon>
+                      </th>
+                      
+                      <th class="action-width"></th>
+                  </tr>
+                  <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.BindingValue">
+                          <input pInputText type="text" 
+                          (input)="dt.filter($event.target.value, col.BindingValue, 'contains')">
+                      </th>
+                      <th class="action-width"></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                          {{rowData[col.BindingValue]}}
+                      </td>
+                      <td class="action-width"></td>
+                  </tr>
+              </ng-template>
+          </p-table>
+          </div>
+                  </div>
+              </div>
+          </tab>
+          <tab heading="Players">
+            &nbsp;
+            <div class="container-fluid">
+              <div class="white-bg">
+                  <div class="row">
+          <p-table #dt1 [columns]="PlayerHeaderList" [value]="players"
+           scrollHeight="200px" class="table" sortMode="multiple" [paginator]="true" [rows]="10">
+              <ng-template pTemplate="header" let-columns>
+                  <tr >
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.BindingValue">
+                          {{col.DisplayName}}
+                          <p-sortIcon [field]="col.BindingValue"></p-sortIcon>
+                      </th>
+                      
+                      <th class="action-width"></th>
+                  </tr>
+                  <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.BindingValue">
+                          <input pInputText type="text" 
+                          (input)="dt.filter($event.target.value, col.BindingValue, 'contains')">
+                      </th>
+                      <th class="action-width"></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                          {{rowData[col.BindingValue]}}
+                      </td>
+                      <td class="action-width"></td>
+                  </tr>
+              </ng-template>
+          </p-table>
+          </div>
+                  </div>
+              </div>
+          </tab>
+          <tab heading="Venues">
+            &nbsp;
+            <div class="container-fluid">
+              <div class="white-bg">
+                  <div class="row">
+                    <p-table #dt1 [columns]="VenuesHeaderList" [value]="venues"
+           scrollHeight="200px" class="table" sortMode="multiple" [paginator]="true" [rows]="5">
+              <ng-template pTemplate="header" let-columns>
+                  <tr >
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.BindingValue">
+                          {{col.DisplayName}}
+                          <p-sortIcon [field]="col.BindingValue"></p-sortIcon>
+                      </th>
+                      
+                      <th class="action-width"></th>
+                  </tr>
+                  <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.BindingValue">
+                          <input pInputText type="text" 
+                          (input)="dt.filter($event.target.value, col.BindingValue, 'contains')">
+                      </th>
+                      <th class="action-width"></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                          {{rowData[col.BindingValue]}}
+                      </td>
+                      <td class="action-width"></td>
+                  </tr>
+              </ng-template>
+          </p-table>
+                  </div>
+              </div>
+            </div>        
+          </tab>
+          <tab heading="Matches and Results">
+            &nbsp;
+            <div class="container-fluid">
+              <div class="white-bg">
+                  <div class="row">
+                    <p-table #dt1 [columns]="MatchesHeaderList" [value]="matches"
+           scrollHeight="200px" class="table" sortMode="multiple" [paginator]="true" [rows]="10">
+              <ng-template pTemplate="header" let-columns>
+                  <tr >
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.BindingValue">
+                          {{col.DisplayName}}
+                          <p-sortIcon [field]="col.BindingValue"></p-sortIcon>
+                      </th>
+                      
+                      <th class="action-width"></th>
+                  </tr>
+                  <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.BindingValue">
+                          <input pInputText type="text" 
+                          (input)="dt.filter($event.target.value, col.BindingValue, 'contains')">
+                      </th>
+                      <th class="action-width"></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                          {{rowData[col.BindingValue]}}
+                      </td>
+                      <td class="action-width"></td>
+                  </tr>
+              </ng-template>
+          </p-table>
+                  </div>
+              </div>
+            </div>
+          </tab>
+          <tab heading="Scorecard">
+            &nbsp;
+            <div class="container-fluid">
+              <div class="white-bg">
+                  <div class="row">
+                    <p-table #dt1 [columns]="ScorecardHeaderList" [value]="scoreCard"
+           scrollHeight="200px" class="table" sortMode="multiple" [paginator]="true" [rows]="10">
+              <ng-template pTemplate="header" let-columns>
+                  <tr >
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.BindingValue">
+                          {{col.DisplayName}}
+                          <p-sortIcon [field]="col.BindingValue"></p-sortIcon>
+                      </th>
+                      
+                      <th class="action-width"></th>
+                  </tr>
+                  <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.BindingValue">
+                          <input pInputText type="text" 
+                          (input)="dt.filter($event.target.value, col.BindingValue, 'contains')">
+                      </th>
+                      <th class="action-width"></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                          {{rowData[col.BindingValue]}}
+                      </td>
+                      <td class="action-width"></td>
+                  </tr>
+              </ng-template>
+          </p-table>
+                  </div>
+              </div>
+            </div>
+          </tab>    
+        </div>
+      </tabset>
+    </div>
+  </div>
+<!-- </div>       -->
